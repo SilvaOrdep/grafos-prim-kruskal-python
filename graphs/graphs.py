@@ -1,5 +1,25 @@
-# Grafo 1
+"""
+LEGENDA DE MAPEAMENTO (Cidades da Escócia para Números):
+0 = Aberdeen
+1 = Edinburgh
+2 = Fort William
+3 = Glasgow
+4 = Inverness
+5 = Perth (Wexford)
+"""
+
+#Grafo 1 (Q1)
 grafo1 = {
+    0: {1: 120, 2: 147, 3: 142, 4: 104, 5: 81},   # Conexões de Aberdeen (0)
+    1: {0: 120, 2: 132, 3: 42, 4: 157, 5: 45},    # Conexões de Edinburgh (1)
+    2: {0: 147, 1: 132, 3: 102, 4: 66, 5: 105},   # Conexões de Fort William (2)
+    3: {0: 142, 1: 42, 2: 102, 4: 168, 5: 61},    # Conexões de Glasgow (3)
+    4: {0: 104, 1: 157, 2: 66, 3: 168, 5: 112},   # Conexões de Inverness (4)
+    5: {0: 81, 1: 45, 2: 105, 3: 61, 4: 112}      # Conexões de Perth (5)
+}
+
+#Grafo 2 (Q2)
+grafo2 = {
     'a': {'b': 2, 'c': 3},
     'b': {'a': 2, 'd': 2},
     'c': {'a': 3, 'd': 1},
@@ -10,8 +30,8 @@ grafo1 = {
     'h': {'f': 1, 'g': 3}
 }
 
-# Grafo 2
-grafo2 = {
+# Grafo 3 (Q2)
+grafo3 = {
     'a': {'b': 16, 'c': 10, 'j': 12},
     'b': {'a': 16, 'c': 7, 'd': 13, 'e': 2},
     'c': {'a': 10, 'b': 7, 'e': 1, 'g': 21},
@@ -24,4 +44,18 @@ grafo2 = {
     'j': {'a': 12, 'h': 19, 'i': 5},
     'k': {'e': 4, 'f': 8, 'i': 6, 'l': 11},
     'l': {'i': 14, 'k': 11}
+}
+
+# Matriz 10x10 de A até J (Q3)
+grafo4 = {
+    'A': {'B': 15, 'C': 10, 'D': 19},
+    'B': {'A': 15, 'D': 7, 'E': 17},
+    'C': {'A': 10, 'D': 16, 'F': 14},
+    'D': {'A': 19, 'B': 7, 'C': 16, 'E': 12, 'F': 6, 'G': 3},
+    'E': {'B': 17, 'D': 12, 'G': 20, 'H': 13},
+    'F': {'C': 14, 'D': 6, 'G': 9, 'I': 5},
+    'G': {'D': 3, 'E': 20, 'F': 9, 'H': 4, 'I': 1, 'J': 11},
+    'H': {'E': 13, 'G': 4, 'J': 2},
+    'I': {'F': 5, 'G': 1, 'J': 18},
+    'J': {'G': 11, 'H': 2, 'I': 18}
 }
