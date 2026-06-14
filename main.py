@@ -47,9 +47,7 @@ def main():
     if selected_algorithm == 'Kruskal':
       algorithm = kruskal.Kruskal(graph_dict)
     elif selected_algorithm == 'Prim':
-      #TODO
-      # algorithm = prim.Prim(graph_dict)
-      algorithm = None
+      algorithm = prim.Prim(graph_dict)
       
     original_graph = graph_drawer.GraphDrawer(
       graph_dict=graph_dict,
