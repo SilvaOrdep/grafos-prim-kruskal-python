@@ -8,11 +8,13 @@ class Kruskal:
     parent = {n: n for n in nodes}
     rank = {n: 0 for n in nodes}
     
-    return {parent, rank}
+    set_object = {'parent': parent, 'rank': rank}
+    
+    return set_object
     
   def _find(self, item, parent):
     if parent[item] != item:
-      parent[item] = self._find(parent[item])
+      parent[item] = self._find(parent[item], parent)
       
     return parent[item]
   
@@ -20,10 +22,17 @@ class Kruskal:
     isUnion = False
     xroot = self._find(x, parent)
     yroot = self._find(y, parent)
+   
+    union_object = {}
     
     if(xroot == yroot):
       isUnion = False
-      return {isUnion, parent, rank}
+      union_object = {
+          'isUnion': isUnion,
+          'parent': parent,
+          'rank': rank
+      }
+      return union_object
     
     if rank[xroot] < rank[yroot]:
       parent[xroot] = yroot
@@ -35,7 +44,13 @@ class Kruskal:
     
     isUnion = True
     
-    return {isUnion, parent, rank}
+    union_object = {
+        'isUnion': isUnion,
+        'parent': parent,
+        'rank': rank
+    }
+    
+    return union_object
     
   def generate_mst_graph(self) -> dict:
     
@@ -52,12 +67,19 @@ class Kruskal:
     
     heapq.heapify(edges)
     
-    parent, rank = self._union_find_setter(self.graph_dict.keys())
+    set_object = self._union_find_setter(self.graph_dict.keys())
+    parent = set_object['parent']
+    rank = set_object['rank']
     
     while edges:
       weight, u, v = heapq.heappop(edges)
       
-      if self._union(u, v, parent, rank):
+      union_object = self._union(u, v, parent, rank)
+      parent = union_object['parent']
+      rank = union_object['rank']
+      isUnion = union_object['isUnion']
+      
+      if isUnion:
         mst[u][v] = weight
         mst[v][u] = weight
         
