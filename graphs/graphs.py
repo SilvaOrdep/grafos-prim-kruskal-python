@@ -1,21 +1,24 @@
-"""
-LEGENDA DE MAPEAMENTO (Cidades da Escócia para Números):
-0 = Aberdeen
-1 = Edinburgh
-2 = Fort William
-3 = Glasgow
-4 = Inverness
-5 = Perth (Wexford)
-"""
+# LEGENDA DE MAPEAMENTO:
+# A = Aberdeen (0)
+# E = Edinburgh (1)
+# F = Fort William (2)
+# G = Glasgow (3)
+# I = Inverness (4)
+# P = Perth (5)
 
-#Grafo 1 (Q1)
+# Grafo 1 (Q1) - Totalmente Mapeado para Letras
 grafo1 = {
-    0: {1: 120, 2: 147, 3: 142, 4: 104, 5: 81},   # Conexões de Aberdeen (0)
-    1: {0: 120, 2: 132, 3: 42, 4: 157, 5: 45},    # Conexões de Edinburgh (1)
-    2: {0: 147, 1: 132, 3: 102, 4: 66, 5: 105},   # Conexões de Fort William (2)
-    3: {0: 142, 1: 42, 2: 102, 4: 168, 5: 61},    # Conexões de Glasgow (3)
-    4: {0: 104, 1: 157, 2: 66, 3: 168, 5: 112},   # Conexões de Inverness (4)
-    5: {0: 81, 1: 45, 2: 105, 3: 61, 4: 112}      # Conexões de Perth (5)
+    # Conexões de Aberdeen
+    'A': {'E': 120, 'F': 147, 'G': 142, 'I': 104, 'P': 81},
+    # Conexões de Edinburgh
+    'E': {'A': 120, 'F': 132, 'G': 42,  'I': 157, 'P': 45},
+    # Conexões de Fort William
+    'F': {'A': 147, 'E': 132, 'G': 102, 'I': 66,  'P': 105},
+    # Conexões de Glasgow
+    'G': {'A': 142, 'E': 42,  'F': 102, 'I': 168, 'P': 61},
+    # Conexões de Inverness
+    'I': {'A': 104, 'E': 157, 'F': 66,  'G': 168, 'P': 112},
+    'P': {'A': 81,  'E': 45,  'F': 105, 'G': 61,  'I': 112}   # Conexões de Perth
 }
 
 #Grafo 2 (Q2)
